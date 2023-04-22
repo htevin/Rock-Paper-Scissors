@@ -53,23 +53,20 @@ function getResult(playerChoice, computerChoice) {
   return score;
 }
 
-let playerScoreDiv = document.getElementById("player-score");
+let playerScore = document.getElementById("player-score");
 let gameResultChoices = document.getElementById("hands");
 let gameResult = document.getElementById("result");
 
 // ** showResult updates the DOM to `You Win!` or `You Lose!` or `It's a Draw!` based on the score. Also shows Player Choice vs. Computer Choice**
 function showResult(score, playerChoice, computerChoice) {
-  console.log({ computerChoice });
-  console.log({ playerChoice });
-  console.log({ score });
+  // console.log({ computerChoice });
+  // console.log({ playerChoice });
+  // console.log({ score });
 
   // Hint: on a score of -1
   // You should do result.innerText = 'You Lose!'
   // Don't forget to grab the div with the 'result' id!
-  playerScoreDiv.innerText = totalScore['playerScore'];
-
-  gameResultChoices.innerText = `🤴 ${playerChoice} vs 🤖${computerChoice}`;
-
+  
   if (score == 1) {
     gameResult.innerText = "You Win!";
   } else if (score == -1) {
@@ -77,6 +74,15 @@ function showResult(score, playerChoice, computerChoice) {
   } else {
     gameResult.innerText = `It's a Draw!`;
   }
+
+  playerScore.innerText = totalScore['playerScore'];
+
+  playerScore.innerText = `${Number(playerScore.innerText) + score}`
+    hands.innerText = `👱 ${playerChoice} vs 🤖 ${computerChoice}`
+
+
+
+
 }
 
 // ** Calculate who won and show it on the screen **
@@ -119,11 +125,11 @@ function endGame(totalScore) {
   totalScore['playerScore'] = 0
   totalScore['computerScore'] = 0
 
-  let playerScoreDiv = document.getElementById("player-score");
+  let playerScore = document.getElementById("player-score");
 let gameResultChoices = document.getElementById("hands");
 let gameResult = document.getElementById("result");
 
-playerScoreDiv.innerText = ''
+playerScore.innerText = ''
 gameResultChoices.innerText = ''
 gameResult.innerText= ''
 
